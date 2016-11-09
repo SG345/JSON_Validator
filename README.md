@@ -13,13 +13,17 @@ $ pip install json-schema
 
 ## Example Usage
 
+### Start the Validation Service
+```
+$ python home.py
+```
 ### POST /schema/SCHEMAID 
 
 - Upload JSON Schema with unique `SCHEMAID`
 
-Example:
+Example 1: Upload a valid JSON Schema
 
-curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
+#### curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
 
 Output:
 
@@ -31,13 +35,25 @@ Output:
 }
 ```
 
+Example 2: Upload invalid JSON Schema
+#### curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
+
+Output:
+
+```
+{
+  "action": "uploadSchema", 
+  "id": "snow", 
+  "message": "Invalid JSON File", 
+  "status": "error"
+```
+
 
 ### POST /validate/SCHEMAID
 
 - Validate JSON document against JSON Schema `SCHEMAID`
 
-
-
+Example 1: Validate a JSON file (success)
 #### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
 ```
 {
@@ -46,7 +62,7 @@ Output:
   "status": "success"
 }
 ```
-
+Example 2: Validate a JSON file (failure -- incase the file fails validation)
 #### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
 ```
 {
@@ -61,6 +77,10 @@ Output:
 ### GET /schema/SCHEMAID 
 
 - Download JSON Schema with unique `SCHEMAID`
+
+Example:
+#### curl  -X GET file=@test.json http://127.0.0.1:5000/schema/snow
+
 
 ```
 {
