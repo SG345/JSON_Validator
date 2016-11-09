@@ -19,7 +19,9 @@ $ pip install json-schema
 
 Example:
 
-#### curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
+curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
+
+Output:
 
 ```{
   "action": "uploadSchema", 
@@ -27,6 +29,33 @@ Example:
   "status": "success"
 }
 ```
+
+
+### POST /validate/SCHEMAID
+
+- Validate JSON document against JSON Schema `SCHEMAID`
+
+
+
+#### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
+```
+{
+  "action": "validateDocument", 
+  "id": "snow", 
+  "status": "success"
+}
+```
+
+#### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
+```
+{
+  "action": "validateDocument", 
+  "id": "snow", 
+  "message": "u'ABC' is not of type u'number'", 
+  "status": "error"
+}
+```
+
 
 ### GET /schema/SCHEMAID 
 
@@ -77,29 +106,3 @@ Example:
   }
 }
 ```
-
-### POST /validate/SCHEMAID
-
-- Validate JSON document against JSON Schema `SCHEMAID`
-
-
-
-#### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
-```{
-  "action": "validateDocument", 
-  "id": "snow", 
-  "status": "success"
-}
-```
-
-#### curl  -X POST -F file=@test.json http://127.0.0.1:5000/validate/snow
-```
-{
-  "action": "validateDocument", 
-  "id": "snow", 
-  "message": "u'ABC' is not of type u'number'", 
-  "status": "error"
-}
-```
-
-
