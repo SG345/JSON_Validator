@@ -132,7 +132,7 @@ Example:
 
 1) All the schema files are currently being uploaded to the current working directory. This can be changed as per the requirements, and we can create a dedicated directory for storing all the schemas.
 
-2) Code needs to be refactored  as per PEP-8 standards, but as of now almost the cases are being handled.
+2) Code needs to be refactored  as per PEP-8 standards.
 
 3) Currently files cannot be uploaded using the -d flag, and the -f flag is being used. I'm  trying to debug this issue.
 
