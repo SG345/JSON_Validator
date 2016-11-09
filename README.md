@@ -23,7 +23,8 @@ curl  -X POST -F file=@schema_sample.json http://127.0.0.1:5000/schema/snow
 
 Output:
 
-```{
+```
+{
   "action": "uploadSchema", 
   "id": "snow", 
   "status": "success"
@@ -61,7 +62,8 @@ Output:
 
 - Download JSON Schema with unique `SCHEMAID`
 
-```{
+```
+{
   "type":"object",
   "$schema": "http://json-schema.org/draft-03/schema",
   "required":false,
