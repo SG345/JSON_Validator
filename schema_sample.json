@@ -1,0 +1,44 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "required":false,
+  "properties":{
+    "address": {
+      "type":"object",
+      "required":true,
+      "properties":{
+        "city": {
+          "type":"string",
+          "required":true
+        },
+        "houseNumber": {
+          "type":"number",
+          "required":false
+        },
+        "streetAddress": {
+          "type":"string",
+          "required":true
+        }
+      }
+    },
+    "phoneNumber": {
+      "type":"array",
+      "required":false,
+      "items":
+      {
+        "type":"object",
+        "required":false,
+        "properties":{
+          "number": {
+            "type":"string",
+            "required":false
+          },
+          "type": {
+            "type":"string",
+            "required":false
+          }
+        }
+      }
+    }
+  }
+}
