@@ -79,7 +79,7 @@ Example 2: Validate a JSON file (failure -- incase the file fails validation)
 - Download JSON Schema with unique `SCHEMAID`
 
 Example:
-#### curl  -X GET file=@test.json http://127.0.0.1:5000/schema/snow
+#### curl  -X GET http://127.0.0.1:5000/schema/snow
 
 
 ```
